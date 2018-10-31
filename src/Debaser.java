@@ -4,8 +4,9 @@
  *
  */
 public class Debaser {
-	private int val = 0; 
-	
+	//Instance Fields. 
+	private int val; //val is either set in constructors or by setValue. 
+
 	/**
 	 * Default constructor. 
 	 * Defaults stored value to 0. 
@@ -15,7 +16,6 @@ public class Debaser {
 	}
 	
 	/**
-	 * Constructor. 
 	 * Sets stored value to inputed value. 
 	 * @param val the inputed value. 
 	 */
@@ -24,7 +24,6 @@ public class Debaser {
 	}
 	
 	/**
-	 * Setter. 
 	 * Sets stored value to inputed value. 
 	 * @param val the inputed value. 
 	 */
@@ -40,7 +39,6 @@ public class Debaser {
 		return val; 
 	}
 	
-	//TODO: Both conversions are not working. Need to fix them. 
 	
 	/**
 	 * Converts the stored number to the given base from base 10. 
@@ -92,39 +90,40 @@ public class Debaser {
 	 * @return resultant number after conversion stored in int type. 
 	 */
 	public int convertToBaseTen(int base) {
-		int tempVal = val; 
-		int rstVal  = 0; 
-		int degree  = 0; 
-		int currentDigit = 0; 
+		int tempVal = val; 	//A replica of val is used because the number is changed in the conversion process. 
+		int rstVal  = 0; 	//Result from the conversion. 
+		int degree  = 0; 	//The degree of "current digit" the program is at in the parsing process. 
+		int currentDigit = 0; 	//Stores the "current digit."
 		//rstVal += digit at a position * base ^ degree
 		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
 		rstVal += currentDigit * Math.pow(base, degree);  
 		tempVal /= 10; 	//Removes the last number from the original number.
 		degree ++;
-		//Repeat the operation 5 more times. 
-		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
+		//Repeat the operation 5 more times so that all six potential digits are dealt with. 
+		//If there are no six digits only 0 will be added to rstVal. 
+		currentDigit = tempVal % 10; 	
 		rstVal += currentDigit * Math.pow(base, degree);  
-		tempVal /= 10; 	//Removes the last number from the original number.
+		tempVal /= 10; 	
 		degree ++; 
 		
-		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
+		currentDigit = tempVal % 10; 
 		rstVal += currentDigit * Math.pow(base, degree);  
-		tempVal /= 10; 	//Removes the last number from the original number.
+		tempVal /= 10; 
 		degree ++; 
 		
-		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
+		currentDigit = tempVal % 10; 
 		rstVal += currentDigit * Math.pow(base, degree);  
-		tempVal /= 10; 	//Removes the last number from the original number.
+		tempVal /= 10; 
 		degree ++; 
 		
-		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
+		currentDigit = tempVal % 10; 
 		rstVal += currentDigit * Math.pow(base, degree);  
-		tempVal /= 10; 	//Removes the last number from the original number.
+		tempVal /= 10; 
 		degree ++; 
 		
-		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
+		currentDigit = tempVal % 10; 
 		rstVal += currentDigit * Math.pow(base, degree);  
-		tempVal /= 10; 	//Removes the last number from the original number.
+		tempVal /= 10; 
 		degree ++; 
 		
 		//Return result. 

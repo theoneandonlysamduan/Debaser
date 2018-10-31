@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"Debaser","l":"converToBaseN(int)"},{"p":"<Unnamed>","c":"Debaser","l":"convertToBaseTen(int)"},{"p":"<Unnamed>","c":"Debaser","l":"Debaser()"},{"p":"<Unnamed>","c":"Debaser","l":"Debaser(int)"},{"p":"<Unnamed>","c":"Debaser","l":"getValue()"},{"p":"<Unnamed>","c":"Debaser","l":"setValue(int)"}]
