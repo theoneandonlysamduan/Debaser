@@ -1,12 +1,32 @@
 /**
  * This program converts a number to/from base ten. 
- * @author sam
+ * 
+ * Sam:
+ * I finished this program weeks ago before it's due, and then I focused on teaching
+ * Leya how to make her own code. She looked online for algorithmns, and I helped her
+ * converting natural language into Java. Leya currently has a working program also. 
+ * 
+ * In the process of explaining how the program works, I was able to optimize this 
+ * piece of code also. So I would say it is a learning experience both for her and 
+ * for me. 
+ * 
+ * Leya:
+ * I learned the algorithm of converting base to base and came up with two ideas of
+ * using string and integer division, but after Sam explained his code to me, we decided
+ * to use his code since it is more efficient and simple. With Sam's help, I caught up 
+ * with everything really quickly, and overall, it was a great collaboration.  
+ * 
+ * @author sam, leya
  *
  */
 public class Debaser {
-	//Instance Fields. 
-	private int val; //val is either set in constructors or by setValue. 
-
+	//Instance Fields:
+	private int val; 	//val is either set in constructors or by setValue. 
+	
+	//Methods:
+	
+	//Constructors: 
+	
 	/**
 	 * Default constructor. 
 	 * Defaults stored value to 0. 
@@ -23,6 +43,8 @@ public class Debaser {
 		this.val = val; 
 	}
 	
+	//Mutators: 
+	
 	/**
 	 * Sets stored value to inputed value. 
 	 * @param val the inputed value. 
@@ -30,6 +52,8 @@ public class Debaser {
 	public void setValue(int val) {
 		this.val = val; 
 	}
+	
+	//Accessors: 
 	
 	/**
 	 * Returns stored value. 
@@ -46,7 +70,7 @@ public class Debaser {
 	 * @param base desired base to change into. 
 	 * @return resultant number after the conversion stored in int type. 
 	 */
-	public int converToBaseN(int base) {
+	public int convertToBaseN(int base) {
 		int tempVal = val; 	//tempVal stores the value of val, and it is going to be changed. 
 		int rstVal  = 0; 	//rstVal stores the result of the operation. 
 		int degree  = 0; 	//Degree stores which degree the "current digit" is at. 
@@ -58,7 +82,8 @@ public class Debaser {
 		tempVal /= base; 
 		degree += 1; 
 		
-		//Repeat this operation 5 more times so there are 6 digits. 
+		//Repeat this operation 5 more times so it would generate 6 digits. 
+		//Overflow would be mathmetically prevented because temp would become zero. 
 		rstVal += (tempVal % base) * Math.pow(10, degree);
 		tempVal /= base; 
 		degree += 1; 
@@ -94,11 +119,13 @@ public class Debaser {
 		int rstVal  = 0; 	//Result from the conversion. 
 		int degree  = 0; 	//The degree of "current digit" the program is at in the parsing process. 
 		int currentDigit = 0; 	//Stores the "current digit."
+		
 		//rstVal += digit at a position * base ^ degree
 		currentDigit = tempVal % 10; 	//Gets the last digit of the current number. 
 		rstVal += currentDigit * Math.pow(base, degree);  
 		tempVal /= 10; 	//Removes the last number from the original number.
 		degree ++;
+		
 		//Repeat the operation 5 more times so that all six potential digits are dealt with. 
 		//If there are no six digits only 0 will be added to rstVal. 
 		currentDigit = tempVal % 10; 	

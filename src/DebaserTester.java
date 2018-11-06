@@ -12,7 +12,7 @@ public class DebaserTester {
 		debaser.setValue(10);
 		System.out.println(debaser.getValue());
 		System.out.println("Expected: 10");
-		int convertedNum = debaser.converToBaseN(2);
+		int convertedNum = debaser.convertToBaseN(2);
 		System.out.println(convertedNum);
 		System.out.println("Expected: 1010");
 		debaser.setValue(convertedNum);
